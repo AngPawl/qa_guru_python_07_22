@@ -20,7 +20,7 @@ def mobile_management():
     with allure.step('Init app session'):
         browser.config.driver = webdriver.Remote(config.remote_url, options=options)
 
-    browser.config.timeout = float(os.getenv('timeout', '10.0'))
+    browser.config.timeout = config.timeout
 
     browser.config._wait_decorator = support._logging.wait_with(
         context=allure_commons._allure.StepContext
